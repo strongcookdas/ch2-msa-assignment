@@ -29,12 +29,20 @@ ext {
 }
 
 dependencies {
+	//jwt
+	implementation 'io.jsonwebtoken:jjwt-api:0.12.6'
+	runtimeOnly 'io.jsonwebtoken:jjwt-impl:0.12.6'
+	runtimeOnly 'io.jsonwebtoken:jjwt-jackson:0.12.6'
+
 	//jpa
 	implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+
 	//임시 db
 	runtimeOnly 'org.hsqldb:hsqldb'
+
 	//security
-	//implementation 'org.springframework.boot:spring-boot-starter-security'
+	implementation 'org.springframework.boot:spring-boot-starter-security'
+
 	//lombok
 	compileOnly 'org.projectlombok:lombok'
 	annotationProcessor 'org.projectlombok:lombok'
