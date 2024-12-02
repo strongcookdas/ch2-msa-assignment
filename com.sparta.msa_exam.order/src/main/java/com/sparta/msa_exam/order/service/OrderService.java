@@ -3,6 +3,7 @@ package com.sparta.msa_exam.order.service;
 import com.sparta.msa_exam.order.client.product.ProductClient;
 import com.sparta.msa_exam.order.client.product.ProductGetResponse;
 import com.sparta.msa_exam.order.dto.OrderAddRequest;
+import com.sparta.msa_exam.order.dto.OrderGetResponse;
 import com.sparta.msa_exam.order.dto.OrderResponse;
 import com.sparta.msa_exam.order.dto.OrderUpdateRequest;
 import com.sparta.msa_exam.order.model.Order;
@@ -72,5 +73,12 @@ public class OrderService {
         Order updateOrder = orderRepository.save(order);
 
         return new OrderResponse(updateOrder.getId());
+    }
+
+    public OrderGetResponse getOrder(Long orderId) {
+        Order order = orderRepository.findById(orderId)
+                .orElseThrow(() -> new IllegalArgumentException("No valid order"));
+
+        return new OrderGetResponse(order.getId(), order.getOrderItemIds());
     }
 }

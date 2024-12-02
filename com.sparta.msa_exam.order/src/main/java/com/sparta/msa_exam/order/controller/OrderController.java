@@ -1,12 +1,14 @@
 package com.sparta.msa_exam.order.controller;
 
 import com.sparta.msa_exam.order.dto.OrderAddRequest;
+import com.sparta.msa_exam.order.dto.OrderGetResponse;
 import com.sparta.msa_exam.order.dto.OrderResponse;
 import com.sparta.msa_exam.order.dto.OrderUpdateRequest;
 import com.sparta.msa_exam.order.service.OrderService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
@@ -30,6 +32,12 @@ public class OrderController {
     public ResponseEntity<OrderResponse> updateOrder(@PathVariable Long orderId,
                                                      @RequestBody OrderUpdateRequest request) {
         OrderResponse response = orderService.updateOrder(request, orderId);
+        return ResponseEntity.status(HttpStatus.OK).body(response);
+    }
+
+    @GetMapping("/{orderId}")
+    public ResponseEntity<OrderGetResponse> getOrder(@PathVariable Long orderId){
+        OrderGetResponse response = orderService.getOrder(orderId);
         return ResponseEntity.status(HttpStatus.OK).body(response);
     }
 }
