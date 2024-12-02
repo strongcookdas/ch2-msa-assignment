@@ -7,6 +7,6 @@ import lombok.NoArgsConstructor;
 @Getter
 @NoArgsConstructor
 @AllArgsConstructor
-public class OrderAddResponse {
+public class OrderResponse {
     private Long orderId;
 }

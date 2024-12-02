@@ -41,4 +41,8 @@ public class Order {
     @CollectionTable(name = "order_items", joinColumns = @JoinColumn(name = "order_id"))
     @Column(name = "order_item_id")
     private List<Long> orderItemIds;
+
+    public void update(Long productId){
+        this.orderItemIds.add(productId);
+    }
 }
