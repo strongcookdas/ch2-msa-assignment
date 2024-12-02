@@ -12,3 +12,7 @@
   - 회원가입과 로그인을 수행
 - `com.sparta.msa_exam.product` : product service application
   - 상품 추가 및 목록 조회 수행
+- `com.sparta.msa_exam.order` : order service application
+  - 주문 추가, 단건 조회, 수정 수행
+- `com.sparta.msa_exam.gateway` : gateway
+  - 클라이언트의 요청을 적절한 서비스 애플리케이션으로 라우팅
