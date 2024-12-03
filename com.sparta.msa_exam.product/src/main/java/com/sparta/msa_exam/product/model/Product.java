@@ -20,13 +20,12 @@ import lombok.NoArgsConstructor;
 public class Product {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(nullable = false, unique = true)
     private Long id;
 
     @Column(nullable = false)
     private String name;
 
-    @Column(nullable = false)
+    @Column(name = "supply_price", nullable = false, columnDefinition = "integer default 0")
     private Integer supplyPrice;
 
 }
